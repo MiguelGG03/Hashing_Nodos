@@ -20,6 +20,9 @@ class Hash(object):
         self.tabla=[None]*tamanio
         self.tamanio=tamanio
         return self.tabla
+
+    def __str__(self):
+        return print(self.tabla)
     
     def cantidad_elementos(self):
         return self.tamanio-self.tabla.count(None)
@@ -32,16 +35,18 @@ class Hash(object):
         '''Agrega un elemento a la tabla'''
         posicion=self.funcion_hash(dato)
         aux=hashNodo()
-        aux.sig=dato
+        aux.info=dato
         naux=aux
         if(tabla[posicion] is None):
             tabla[posicion]=naux
             print(f'{naux.info} instertado con exito a la tabla')
+            self.tabla=tabla
         else:
             nodo=hashNodo()
             nodo.info=dato
             naux.sig=nodo
             print(f'{nodo.info} aderido a la cola con exito, su puntero apunta a {nodo.sig}')
+            self.tabla=tabla
 
 
             
@@ -60,11 +65,11 @@ def main():
     
     tabla_hash=(hashing.crear_tabla(n))
     cadena=input('Cadena: ')
-    print(hashing.bernstein(cadena))
-    print(tabla_hash)
-    print(hashing.bernstein(cadena))
     hashing.agregar(tabla_hash,cadena)
-    
+    print(tabla_hash.__str__())
+    cadena2=input('Cadena: ')
+    hashing.agregar(tabla_hash,cadena2)
+    print(tabla_hash.__str__())
 
 
 if __name__=='__main__':
