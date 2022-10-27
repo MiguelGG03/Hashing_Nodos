@@ -1,4 +1,3 @@
-
 class Hash:
 
     def __init__(self):
@@ -22,6 +21,10 @@ class Hash:
 
     def hasher(self,dato):
         return self.bernstein(str(dato))% self.tamanio
+
+    def funcion_hash(self,dato):
+        '''Posicion del dato en la tabla'''
+        return len(str(dato).strip()) % self.tamanio
     
     def agregar(self,tabla,dato):
         posicion=self.hasher(dato)
@@ -40,6 +43,7 @@ def main():
     cadena=input('Cadena: ')
     print(hashing.bernstein(cadena))
     print(tabla_hash)
+    print(hashing.bernstein(cadena))
     
 
 
