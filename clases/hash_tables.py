@@ -36,16 +36,18 @@ class Hash(object):
         posicion=self.funcion_hash(dato)
         aux=hashNodo()
         aux.info=dato
-        naux=aux
+        
         if(tabla[posicion] is None):
-            tabla[posicion]=naux
-            print(f'{naux.info} instertado con exito a la tabla')
+            tabla[posicion]=aux
+            print(f'{aux.info} instertado con exito a la tabla')
             self.tabla=tabla
         else:
-            nodo=hashNodo()
-            nodo.info=dato
-            naux.sig=nodo
-            print(f'{nodo.info} aderido a la cola con exito, su puntero apunta a {nodo.sig}')
+            aux2=tabla[posicion]
+            while(aux2.sig!=None):
+                aux2=aux2.sig            
+            aux2.sig=aux
+            print(f'Se ha aderido ({aux2.info}) a la cola con exito, su puntero apunta a ({aux2.sig.info}),\nel cual apunta a (None)')
+            print(f'Ahora el nodo ({aux2.info}) apunta hacia ({aux2.sig.info})')
             self.tabla=tabla
     
     def buscar(self,buscado):
@@ -86,10 +88,8 @@ def main():
         nuevodato=input('Dato a añadir (None para salir)\n>>>')
     
     print(tabla_hash.__str__())
-    cadena2=input('Cadena: ')
-    hashing.agregar(tabla_hash,cadena2)
-    print(tabla_hash.__str__())
-    resultado=hashing.buscar('Miguel')
+    buscador=input('Que dato desea buscar\n>>>')
+    resultado=hashing.buscar(buscador)
     print(resultado)
 
 
