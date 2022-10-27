@@ -50,7 +50,6 @@ class Hash(object):
     
     def buscar(self,buscado):
         '''Busca un elemento dentro de la tabla y determina la posicion de este'''
-        print(hashNodo.info)
         pos= None
         posicion=self.funcion_hash(buscado)
         naux=self.tabla[posicion]
