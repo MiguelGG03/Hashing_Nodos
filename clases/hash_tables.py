@@ -1,4 +1,9 @@
-class Hash:
+class nodoHash(object):
+
+    info , sig = None , None
+
+
+class Hash(object):
 
     def __init__(self):
         self.tabla=[]
@@ -19,15 +24,19 @@ class Hash:
     def cantidad_elementos(self):
         return self.tamanio-self.tabla.count(None)
 
-    def hasher(self,dato):
-        return self.bernstein(str(dato))% self.tamanio
-
     def funcion_hash(self,dato):
         '''Posicion del dato en la tabla'''
-        return len(str(dato).strip()) % self.tamanio
+        return self.bernstein(str(dato))% self.tamanio
     
     def agregar(self,tabla,dato):
-        posicion=self.hasher(dato)
+        '''Agrega un elemento a la tabla'''
+        posicion=self.funcion_hash(dato)
+        if(tabla[posicion] is None):
+            tabla[posicion]=Lista()
+        else:
+            print('Se produjo una colisión')
+        
+    
 
 
 
