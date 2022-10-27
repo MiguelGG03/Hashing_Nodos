@@ -50,6 +50,8 @@ class Cola(object):
 
 def main():
     cola=Cola()
+    n1=input('Dato1: ')
+    n2=input('Dato2: ')
     cola.arribo('**Hola**')
     cola.arribo('**Adios**')
     print('Creamos la cola y añadimos los datos **Hola** y **Adios** a la cola')
