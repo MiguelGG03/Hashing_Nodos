@@ -66,7 +66,16 @@ class Hash(object):
     
     def quitar(self,dato):
         '''Busca un elemento dentro de la tabla y lo elimina'''
-
+        posicion=self.funcion_hash(dato)
+        naux=self.tabla[posicion]
+        fin=True
+        while(fin==True):
+            if(naux.info==dato):
+                naux=naux.sig
+                fin=False
+            else:
+                nodo=naux.sig
+                naux=nodo
             
         
     
@@ -88,6 +97,8 @@ def main():
         nuevodato=input('Dato a añadir (None para salir)\n>>>')
     
     print(tabla_hash.__str__())
+    eliminar=input('Que dato desea eliminar\n>>>')
+    hashing.quitar(eliminar)
     buscador=input('Que dato desea buscar\n>>>')
     resultado=hashing.buscar(buscador)
     print(resultado)
