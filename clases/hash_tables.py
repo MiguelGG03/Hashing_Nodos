@@ -1,4 +1,4 @@
-class nodoHash(object):
+class hashNodo(object):
 
     info , sig = None , None
 
@@ -31,10 +31,20 @@ class Hash(object):
     def agregar(self,tabla,dato):
         '''Agrega un elemento a la tabla'''
         posicion=self.funcion_hash(dato)
+        aux=hashNodo()
+        aux.sig=dato
+        naux=aux
         if(tabla[posicion] is None):
-            tabla[posicion]=Lista()
+            tabla[posicion]=naux
+            print(f'{naux.info} instertado con exito a la tabla')
         else:
-            print('Se produjo una colisión')
+            nodo=hashNodo()
+            nodo.info=dato
+            naux.sig=nodo
+            print(f'{nodo.info} aderido a la cola con exito, su puntero apunta a {nodo.sig}')
+
+
+            
         
     
 
@@ -53,6 +63,7 @@ def main():
     print(hashing.bernstein(cadena))
     print(tabla_hash)
     print(hashing.bernstein(cadena))
+    hashing.agregar(tabla_hash,cadena)
     
 
 
