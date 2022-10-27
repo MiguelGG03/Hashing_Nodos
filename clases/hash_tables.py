@@ -62,6 +62,7 @@ class Hash(object):
                 else:
                     nodo=naux.sig
                     naux=nodo
+        print(naux.info,naux.sig.info)
         return dato
     
     def quitar(self,dato):
