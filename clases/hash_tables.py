@@ -49,18 +49,21 @@ class Hash(object):
             self.tabla=tabla
     
     def buscar(self,buscado):
-        '''Busca un elemento dentro de la tabla y determina la posicion de este'''
-        pos= None
+        '''Busca un elemento dentro de la tabla y devuelve sus datos'''
+        dato= None
         posicion=self.funcion_hash(buscado)
         naux=self.tabla[posicion]
         if(naux is not None):
-            while(naux is not None and pos is None):
+            while(naux is not None and dato is None):
                 if(naux.info==buscado):
-                    pos= naux.info
+                    dato= naux.info
                 else:
                     nodo=naux.sig
                     naux=nodo
-        return pos
+        return dato
+    
+    def quitar(self,dato):
+        '''Busca un elemento dentro de la tabla y lo elimina'''
 
             
         
@@ -77,8 +80,11 @@ def main():
     n=int(input('Introduzca el tamaño de la tabla deseado: '))
     
     tabla_hash=(hashing.crear_tabla(n))
-    cadena=input('Cadena: ')
-    hashing.agregar(tabla_hash,cadena)
+    nuevodato=input('Dato a añadir (None para salir)\n>>>')
+    while(nuevodato!=''):
+        hashing.agregar(tabla_hash,nuevodato)
+        nuevodato=input('Dato a añadir (None para salir)\n>>>')
+    
     print(tabla_hash.__str__())
     cadena2=input('Cadena: ')
     hashing.agregar(tabla_hash,cadena2)
