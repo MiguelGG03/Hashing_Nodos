@@ -54,7 +54,7 @@ class Hash(object):
         posicion=self.funcion_hash(buscado)
         naux=self.tabla[posicion]
         if(naux is not None):
-            while(naux.sig is not None and pos is None):
+            while(naux is not None and pos is None):
                 if(naux.info==buscado):
                     pos= naux.info
                 else:
@@ -83,7 +83,8 @@ def main():
     cadena2=input('Cadena: ')
     hashing.agregar(tabla_hash,cadena2)
     print(tabla_hash.__str__())
-    hashing.buscar('Miguel')
+    resultado=hashing.buscar('Miguel')
+    print(resultado)
 
 
 if __name__=='__main__':
