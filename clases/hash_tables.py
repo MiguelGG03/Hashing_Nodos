@@ -47,7 +47,21 @@ class Hash(object):
             naux.sig=nodo
             print(f'{nodo.info} aderido a la cola con exito, su puntero apunta a {nodo.sig}')
             self.tabla=tabla
-
+    
+    def buscar(self,buscado):
+        '''Busca un elemento dentro de la tabla y determina la posicion de este'''
+        print(hashNodo.info)
+        pos= None
+        posicion=self.funcion_hash(buscado)
+        naux=self.tabla[posicion]
+        if(naux is not None):
+            while(naux.sig is not None and pos is None):
+                if(naux.info==buscado):
+                    pos= naux.info
+                else:
+                    nodo=naux.sig
+                    naux=nodo
+        return pos
 
             
         
@@ -70,6 +84,7 @@ def main():
     cadena2=input('Cadena: ')
     hashing.agregar(tabla_hash,cadena2)
     print(tabla_hash.__str__())
+    hashing.buscar('Miguel')
 
 
 if __name__=='__main__':
