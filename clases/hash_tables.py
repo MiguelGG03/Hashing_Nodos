@@ -46,7 +46,7 @@ class Hash(object):
             while(aux2.sig!=None):
                 aux2=aux2.sig            
             aux2.sig=aux
-            print(f'Se ha aderido ({aux2.info}) a la cola con exito, su puntero apunta a ({aux2.sig.info}),\nel cual apunta a (None)')
+            print(f'Se ha adherido ({aux2.info}) a la cola con exito, su puntero apunta a ({aux2.sig.info}),\nel cual apunta a (None)')
             print(f'Ahora el nodo ({aux2.info}) apunta hacia ({aux2.sig.info})')
             self.tabla=tabla
     
