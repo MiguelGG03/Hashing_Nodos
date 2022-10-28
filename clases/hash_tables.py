@@ -62,21 +62,19 @@ class Hash(object):
                 else:
                     nodo=naux.sig
                     naux=nodo
-        print(naux.info,naux.sig.info)
         return dato
     
     def quitar(self,dato):
         '''Busca un elemento dentro de la tabla y lo elimina'''
         posicion=self.funcion_hash(dato)
-        naux=self.tabla[posicion]
-        fin=True
-        while(fin==True):
-            if(naux.info==dato):
-                naux=naux.sig
-                fin=False
-            else:
-                nodo=naux.sig
-                naux=nodo
+        aux=self.tabla[posicion]
+        aux0=None
+        
+        while(aux.info!=dato):
+            aux0=aux
+            aux=aux.sig
+        aux0.sig=aux.sig
+        
             
         
     
