@@ -74,13 +74,6 @@ class Hash(object):
             aux0=aux
             aux=aux.sig
         aux0.sig=aux.sig
-        
-            
-        
-    
-
-
-
 
 
 
